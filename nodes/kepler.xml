@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+
+	<description>
+	Kepler roll 
+	</description>
+
+	<copyright>
+	</copyright>
+
+	<changelog>
+	</changelog>
+
+	<package>kepler</package>
+	<!-- <package>roll-kepler-usersguide</package> -->
+
+</kickstart>

@@ -1,0 +1,5 @@
+ROLLNAME	= kepler
+RELEASE		= 0
+COLOR		= blue
+
+REDHAT.ROOT	= $(CURDIR)
