@@ -2,7 +2,6 @@
 
 <kickstart>
 
-
 	<description>
 	Kepler roll 
 	</description>
@@ -14,6 +13,7 @@
 	</changelog>
 
 	<package>kepler</package>
-	<!-- <package>roll-kepler-usersguide</package> -->
+	<package>jre1.8.0_121</package>
+	<package>java-1.8.0-openjdk-devel</package>
 
 </kickstart>
