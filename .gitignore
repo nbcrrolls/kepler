@@ -10,6 +10,7 @@ atlas*.iso
 _os
 _arch
 _distribution
+bootstrap.py
 
 # ignore version.mk
 rocks-version.mk
@@ -29,5 +30,5 @@ roll-*.mk
 
 # ignore binarires
 src/kepler/Kepler-*.gz
-src/jre/jre*.gz
+src/jre/jre*.rpm
 
