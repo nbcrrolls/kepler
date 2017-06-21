@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!-- 
+
+    Default configuration file for provenance module.
+
+    $Id: configuration.xml 33402 2015-05-08 16:52:32Z crawl $
+
+-->
+<config>
+
+    <provenance>
+
+	    <!-- 
+            Default settings for provenance. Each name in a pair is the
+            parameter name for the provenance recorder. (However some
+            parameters only are used based on the output type).
+        -->
+        <defaultSettings>
+
+            <!-- the output to use. See recordingTypes below for options. -->
+            <pair>
+                <name>Recording Type</name>
+                <value>SQL-SPA-v8</value>
+            </pair>
+           
+            <!-- if true, record token values -->
+            <pair>
+                <name>Record Token Values</name>
+                <value>true</value>
+            </pair>
+
+            <!-- name of default provenance recorder in workflow -->
+            <pair>
+                <name>Provenance Recorder Name</name>
+                <value>TOP Provenance Recorder</value>
+            </pair>
+
+            <!-- host name running the database -->
+            <pair>
+                <name>DB Host</name>
+                <value>localhost</value>
+            </pair>
+
+            <!-- database name (i.e., schema or sid) -->
+            <pair>
+                <name>DB Name</name>
+                <value>provenanceDB</value>
+            </pair>
+
+            <!-- type of database -->
+            <pair>
+                <name>DB Type</name>
+                <value>HSQL</value>
+            </pair>
+
+            <!-- user name for database -->
+            <pair>
+                <name>DB User Name</name>
+                <value>sa</value>
+            </pair>
+          
+            <!-- database port 
+              The list of HSQL ports used by Kepler is at:
+              https://kepler-project.org/developers/reference/accessing-hsql 
+            -->
+            <pair>
+                <name>DB Port</name>
+                <value>9007</value>
+            </pair>
+
+            <!-- password for database -->
+            <pair>
+                <name>Password</name>
+                <value></value>
+            </pair>
+
+
+            <!-- name of workflow in the database -->
+            <pair>
+                <name>Workflow Name</name>
+                <value></value>
+            </pair>
+
+
+            <!-- prefix for table names (leave blank for no prefix) -->
+            <pair>
+                <name>DB Table Prefix</name>
+                <value></value>
+            </pair>
+
+            <!-- maximum size (in kilobytes) of files to automatically
+                 store in the database. 
+            -->
+            <pair>
+                <name>maxFileInclusionSizeKB</name>
+                <value>0</value>
+            </pair>
+
+            <!-- a jdbc url to connect to the database. if this is not
+                 empty, it overrides the other database parameters.
+            -->
+            <pair>
+                <name>JDBC URL</name>
+                <value></value>
+            </pair>
+
+        </defaultSettings>
+
+
+        <!-- Valid provenance output types. -->
+        <recordingTypes>
+            <pair>
+                <name>Text File</name>
+                <value>org.kepler.provenance.TextFileRecording</value>
+            </pair>
+            <pair>
+                <!-- Output nothing. This type can be used to stop provenance
+                     output inside composite actors.
+                -->
+                <name>Ignore</name>
+                <value>org.kepler.provenance.Recording</value>
+            </pair>
+            <pair>
+                <name>SQL-SPA-v8</name>
+                <value>org.kepler.provenance.sql.SQLRecordingV8</value>
+            </pair>
+            <pair>
+                <name>PROV</name>
+                <value>org.kepler.provenance.prov.ProvRecording</value>
+            </pair>
+            <pair>
+                <name>OPM XML</name>
+                <value>org.kepler.provenance.opm.OpenProvenanceModelXML</value>
+            </pair>
+        </recordingTypes>
+        
+        <!-- PROV type to use when serializing provenance in KAR files. -->
+        <karProvType>JSON</karProvType>
+
+    </provenance>
+
+    <karEntryHandlerFactory>
+        <karHandler>
+            <name>provenancekeh</name>
+            <class>org.kepler.kar.handlers.ProvKAREntryHandler$Factory</class>
+        </karHandler>
+    </karEntryHandlerFactory>
+
+</config>

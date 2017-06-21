@@ -12,6 +12,7 @@ include Rules.mk
 
 build:
 	tar -xvzf $(SOURCE_PKG)
+	cd patch-files && find . -type f | grep -v CVS | cpio -pduv ..
 	
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
