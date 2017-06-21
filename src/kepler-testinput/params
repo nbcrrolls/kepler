@@ -1,0 +1,41 @@
+ExecutionChoice = GenericGPUCluster
+TargetHost = USER@rocce.ucsd.edu
+IdentityFile = /home/USER/.ssh/keplernop
+AMBERHOME_CPU = /opt/amber/gnu/eth/bin
+AMBERHOME_GPU = /opt/amber/gnu/eth/bin
+remoteDir = /data/scratch/USER
+Scheduler = SGE
+t_cpu = 04:00:00
+t_gpu = 08:00:00
+cpuModulesToLoad = module load amber14/gnu
+gpuModulesToLoad = module load amber14/gnu; export CUDA_VISIBLE_DEVICES=`/share/apps/bin/showVisGpu 1`; hostname
+CPUqueue = all.q
+GPUqueue = gpu
+igValue = -1
+tempValue = 310.0
+dtValue = 0.002
+nstlimValue = 5000
+ntprValue = 5000
+ntwxValue = 5000
+gamma_lnValue = 5.0
+maxcycValue = 2000
+inputFolder = /home/USER/TestInput
+CONF_DIR = confDir
+CMPD = p53_zinc07135644
+numOfJobs = 3
+RMSDAnalysis = True
+Minimization.minimization1.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -N minp1 -e minp1.err -o minp1.out -pe orte 8 -cwd -S /bin/bash
+Minimization.minimization2.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -N minp2 -e minp2.err -o minp2.out -pe orte 8 -cwd -S /bin/bash
+Minimization.minimization3.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -N minp3 -e minp3.err -o minp3.out -pe orte 8 -cwd -S /bin/bash
+Minimization.minimization4.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -N minp4 -e minp4.err -o minp4.out -pe orte 8 -cwd -S /bin/bash
+Minimization.minimization5.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -N minp5 -e minp5.err -o minp5.out -pe orte 8 -cwd -S /bin/bash
+Heating.heating.GenericGPUCluster.SchedulerConfiguration = -V -q $GPUqueue -l gpu=1 -e heatp.err -o heatp.out -cwd -S /bin/bash
+Heating.heatingRMSD.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -cwd -S /bin/bash
+Equilibration.equilibration1.GenericGPUCluster.SchedulerConfiguration = -V -q $GPUqueue -l gpu=1 -e equilip1.err -o equilip1.out -cwd -S /bin/bash
+Equilibration.equilibration1_RMSD.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -cwd -S /bin/bash
+Equilibration.equilibration2.GenericGPUCluster.SchedulerConfiguration = -V -q $GPUqueue -l gpu=1 -e equilip2.err -o equilip2.out -cwd -S /bin/bash
+Equilibration.equilibration2_RMSD.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -cwd -S /bin/bash
+Equilibration.equilibration3.GenericGPUCluster.SchedulerConfiguration = -V -q $GPUqueue -l gpu=1 -e equilip3.err -o equilip3.out -cwd -S /bin/bash
+Equilibration.equilibration3_RMSD.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -cwd -S /bin/bash
+Production.Production.GenericGPUCluster.SchedulerConfiguration = -V -q $GPUqueue -l gpu=1 -e prodp.err -o prodp.out -cwd -S /bin/bash
+ProductionRMSD.ProductionRMSD.GenericGPUCluster.SchedulerConfiguration = -V -q $CPUqueue -cwd -S /bin/bash
