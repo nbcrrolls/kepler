@@ -13,6 +13,7 @@
 	</changelog>
 
 	<package>kepler</package>
+	<package>keplerwf</package>
 	<package>jre1.8.0_121</package>
 	<package>java-1.8.0-openjdk-devel</package>
 
