@@ -17,6 +17,6 @@
 	<!-- add edges here -->
 
         <edge from="server" to="kepler"/>
-        <!-- <edge from="client" to="kepler"/>  -->
+        <edge from="client" to="kepler"/>
 
 </graph>
