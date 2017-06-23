@@ -29,6 +29,6 @@ roll-*.xml
 roll-*.mk
 
 # ignore binarires
-src/kepler/Kepler-*.gz
+src/kepler/*.gz
 src/jre/jre*.rpm
 
